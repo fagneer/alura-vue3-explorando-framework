@@ -1,0 +1,23 @@
+
+
+:root {
+    
+    /* Paleta de cores do Framework */
+    --info: #3a853a;
+    --primary: #aaaaaa;
+    --secondary: #aaaaaa;
+    --success: #3a853a;
+    --warning: #3a853a;
+    --danger: #3a853a;
+    --dark: #222222;
+    --light: #eeeeee;
+    --link: #0e73f7;
+    --lua: #3a853a;
+
+}
+
+/* Botões */
+
+.btn-success {
+    background-color: #eeffee;
+}
