@@ -2,27 +2,11 @@
     <div class="box">
         <div class="columns">
             <div class="column is-8" role="form" aria-label="Formulario para criação de uma nova tarefa">
-                <input type="text" class="input" name="" id="" placeholder="Qual tarefa você deseja iniciar?" />
+                <input type="text" class="input" name="" id="" placeholder="Qual tarefa você deseja iniciar?" v-model="descricaoTarefa" required/>
             </div>
 
             <div class="column">
-                <div class="is-flex is-align-items-center is-justify-content-space-between">
-                    <section>
-                        <strong>00:00:00</strong>
-                    </section>
-                    <button class="button" @click="iniciar">
-                        <span class="icon">
-                            <i class="fas fa-play"></i>
-                        </span>
-                        <span>Play</span>
-                    </button>
-                    <button class="button" @click="finalizar">
-                        <span class="icon">
-                            <i class="fas fa-stop"></i>
-                        </span>
-                        <span>Stop</span>
-                    </button>
-                </div>
+                <TemporizadorCronometro @aoTemporizadorFinalizado="finalizarTarefa"/>
             </div>
         </div>
     </div>
@@ -30,15 +14,26 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
+import TemporizadorCronometro from "./TemporizadorCronometro.vue";
 
 export default defineComponent({
     name: "FormularioTarefa",
+    emits: ['aoSalvarTarefa'],
+    components: {
+        TemporizadorCronometro
+    },
+    data() {
+        return {
+            descricaoTarefa: ''
+        }
+    },
     methods: {
-        iniciar() {
-            console.log('iniciando');
-        },
-        finalizar() {
-            console.log('finalizando');
+        finalizarTarefa(tempoDecorrido: number): void {
+            this.$emit('aoSalvarTarefa', {
+                duracaoEmSegundos: tempoDecorrido,
+                descricao: this.descricaoTarefa
+            })
+            this.descricaoTarefa = ''
         }
     }
 });
