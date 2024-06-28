@@ -1,5 +1,5 @@
 <template>
-    <div class="box">
+    <div class="box --tema-dark-formulario">
         <div class="columns">
             <div class="column is-8" role="form" aria-label="Formulario para criação de uma nova tarefa">
                 <input type="text" class="input" name="" id="" placeholder="Qual tarefa você deseja iniciar?" v-model="descricaoTarefa" required/>

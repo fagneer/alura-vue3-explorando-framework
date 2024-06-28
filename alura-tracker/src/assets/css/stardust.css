@@ -16,6 +16,33 @@
 
 }
 
+/* Estilos do Módulo 4 - Modo escuro */
+
+main {
+    --bg-primario: #eeeeef;
+    --texto-primario: #222
+}
+
+main.--tema-dark {
+    --bg-primario: #2b2d42;
+    --texto-primario: #ddd;
+    --bg-cpn-primario: #1a1c31;
+}
+
+.--tema-dark-conteudo {
+    background-color: var(--bg-primario);
+}
+
+.--tema-dark-formulario {
+    color: var(--texto-primario);
+    background-color: var(--bg-cpn-primario);
+}
+
+.--tema-dark-display {
+    color: var(--texto-primario);
+}
+
+
 /* Botões */
 
 .btn-success {
